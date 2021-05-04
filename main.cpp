@@ -6,12 +6,12 @@
 
 using namespace std;
 
-char grid [9][9];
+uint8_t grid [9][9];
 
 void clearGrid (void) {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
-            grid[i][j] = 1;
+            grid[i][j] = 0;
         }
     }
 }
@@ -22,7 +22,7 @@ void populateGrid (void) {
     int i = 0;
     while(getline(inFile, tmp)) {
         for (int j = 0; j < 9; j++) {
-            grid[i][j] = tmp[j];
+            grid[i][j] = (tmp[j] - '0');
         }
         i++;
     }
@@ -32,7 +32,7 @@ void populateGrid (void) {
 void printGrid (void) {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
-            cout << grid[i][j] << " ";
+            cout << (uint)grid[i][j] << " ";
         }
         cout << endl;
     }
